@@ -1,0 +1,1 @@
+let fetchUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${searchText}&appid=19646f0f6fda25aa9456a943e1eda27b`;

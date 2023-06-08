@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Weather Tracker</title>
+</head>
+<body class="justify-items-center max-w-full">
+    <header class="flex mt-4 space-x-36 max-w-full content-center">
+        <h1 class="content-center">Weather Tracker</h1>
+        <button id="homeBtn" class="bg-gray-200 content-center">New Search</button>
+    </header>
+    <main class="content-center">
+        <form class="content-center">
+            <input id="searchText" class="bg-gray-200 mt-4 content-center" type="text" name="City or Zip Code">
+            <button id="submitBtn" class="bg-gray-200 mt-4 content-center">Search</button>
+        </form>
+        <div id="weatherCard" class="content-center justify-items-stretch"></div>
+    </main>
+    <footer class="content-center"></footer>
+    
+    <script src="./develop/script.js"></script>
+</body>
+</html>
