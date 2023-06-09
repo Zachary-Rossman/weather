@@ -5,13 +5,6 @@ let submitBtn = document.querySelector(`#submitBtn`);
 let weatherCard = document.querySelector(`#weatherCard`);
 let errorMessage = document.querySelector(`#error`);
 
-// empty string for searchText
-let searchTextContent = "";
-
-// url for api
-// let requestUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${searchText.value}&appid=19646f0f6fda25aa9456a943e1eda27b`;
-
-
 searchForm.addEventListener('submit', e => {
     // If text input is empty, no event takes place
     e.preventDefault();
@@ -26,14 +19,14 @@ searchForm.addEventListener('submit', e => {
     } else {
         // Fetch will grab url
         fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${searchText.value}&appid=19646f0f6fda25aa9456a943e1eda27b`)
-        // Catch
-        .catch
+        .catch(404)
         // .then promise will return raw json response
         .then(function(response) {
             return response.json();
         })
         // .then go to data
         .then(function (data) {
+            console.log(data);
             // Loop through data for manipulation
 
             // Define current temperature, feels like, temp low, temp high, cloudiness (description), wind speed, visibility; as well as future forecast
@@ -97,6 +90,9 @@ searchForm.addEventListener('submit', e => {
             // let fiveVisibility = ;
 
             // Set all text and append to DOM
-        });
-    }
-})
+
+        })
+        // Check for errors; come back to later
+        .then.reject();
+    };
+});
