@@ -19,7 +19,6 @@ searchForm.addEventListener('submit', e => {
     } else {
         // Fetch will grab url
         fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${searchText.value}&appid=19646f0f6fda25aa9456a943e1eda27b`)
-        .catch(404)
         // .then promise will return raw json response
         .then(function(response) {
             return response.json();
@@ -89,10 +88,10 @@ searchForm.addEventListener('submit', e => {
             // let fiveWindSpeed = ;
             // let fiveVisibility = ;
 
-            // Set all text and append to DOM
+            // Set all text and append to HTML
 
         })
-        // Check for errors; come back to later
+        // Check for errors; come back to complete later
         .then.reject();
     };
 });
