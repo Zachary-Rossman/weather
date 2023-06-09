@@ -4,22 +4,23 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script defer src="./develop/script.js"></script>
     <title>Weather Tracker</title>
 </head>
-<body class="justify-items-center max-w-full">
-    <header class="flex mt-4 space-x-36 max-w-full content-center">
-        <h1 class="content-center">Weather Tracker</h1>
-        <button id="homeBtn" class="bg-gray-200 content-center">New Search</button>
+<body>
+    <header>
+        <h1>Weather Tracker</h1>
+        <button id="homeBtn">New Search</button>
     </header>
-    <main class="content-center">
-        <form class="content-center">
-            <input id="searchText" class="bg-gray-200 mt-4 content-center" type="text" name="City or Zip Code">
-            <button id="submitBtn" class="bg-gray-200 mt-4 content-center">Search</button>
+    <main>
+        <div id="error"></div>
+        <form id="searchForm" action="/" method="GET">
+            <label for="searchText">Enter City Here</label>
+            <input id="searchText" type="text" name="searchText">
+            <button id="submitBtn" type="submit">Search</button>
         </form>
-        <div id="weatherCard" class="content-center justify-items-stretch"></div>
+        <div id="weatherCard"></div>
     </main>
-    <footer class="content-center"></footer>
-    
-    <script src="./develop/script.js"></script>
+    <footer></footer>
 </body>
 </html>
