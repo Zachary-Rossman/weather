@@ -12,7 +12,7 @@ searchForm.addEventListener('submit', e => {
     // If 
     if (searchText.value === null) {
         // Define content for error message
-        errorMessage.innerHTML = `Please enter valid search`;
+        errorMessage.innerHTML = `Please enter a valid search`;
 
         // End function
         return;
@@ -25,11 +25,27 @@ searchForm.addEventListener('submit', e => {
         })
         // .then go to data
         .then(function (data) {
-            console.log(data);
+            // Function checking to make sure city is within United States
+            checkLocation(data);
+            function checkLocation(list) {
+                // Gets country code from API
+                let country = list.city.country;
+
+                // Checks country code to work for US cities only
+                if (country === 'US') {
+                    // Hides error section if previously shown
+                    errorMessage.style.display = 'none';
+                    console.log(country);
+                } else {
+                    // Shows error message if search is outside of United States
+                    errorMessage.style.display = 'flex';
+                    errorMessage.innerHTML = 'Please enter a valid search. City must be within United States.';
+                }
+            };
             // Loop through data for manipulation
 
             // Define current temperature, feels like, temp low, temp high, cloudiness (description), wind speed, visibility; as well as future forecast
-            // let currentTemp = ;
+            //let currentTemp = ;
             // let currentFeelLike = ;
             // let currentCloudiness = ;
             // let currentLow = ;
@@ -91,7 +107,5 @@ searchForm.addEventListener('submit', e => {
             // Set all text and append to HTML
 
         })
-        // Check for errors; come back to complete later
-        .then.reject();
     };
 });
