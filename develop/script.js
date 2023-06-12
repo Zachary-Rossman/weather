@@ -53,6 +53,7 @@ searchForm.addEventListener('submit', e => {
             // let currentHumidity = ;
             // let currentWindSpeed = ;
             // let currentVisibility = ;
+            // let lastUpdate (meta.lastUpdate);
             
             // Define forecasted items one day out
             // let oneTemp = ;
@@ -63,6 +64,8 @@ searchForm.addEventListener('submit', e => {
             // let oneHumidity = ;
             // let oneWindSpeed = ;
             // let oneVisibility = ;
+            // let sunRise = sun.rise;
+            // let sunSet = sun.set;
 
             // Define forecasted items two days out
             // let twoTemp = ;
@@ -73,6 +76,8 @@ searchForm.addEventListener('submit', e => {
             // let twoHumidity = ;
             // let twoWindSpeed = ;
             // let twoVisibility = ;
+            // let sunRise = sun.rise;
+            // let sunSet = sun.set;
 
             // Define forecasted items three days out
             // let threeTemp = ;
@@ -83,6 +88,8 @@ searchForm.addEventListener('submit', e => {
             // let threeHumidity = ;
             // let threeWindSpeed = ;
             // let threeVisibility = ;
+            // let sunRise = sun.rise;
+            // let sunSet = sun.set;
 
             // Define forecasted items four days out
             // let fourTemp = ;
@@ -93,6 +100,8 @@ searchForm.addEventListener('submit', e => {
             // let fourHumidity = ;
             // let fourWindSpeed = ;
             // let fourVisibility = ;
+            // let sunRise = sun.rise;
+            // let sunSet = sun.set;
 
             // Define forecasted items five days out
             // let fiveTemp = ;
@@ -103,6 +112,8 @@ searchForm.addEventListener('submit', e => {
             // let fiveHumidity = ;
             // let fiveWindSpeed = ;
             // let fiveVisibility = ;
+            // let sunRise = sun.rise;
+            // let sunSet = sun.set;
 
             // Set all text and append to HTML
 
