@@ -18,7 +18,7 @@ searchForm.addEventListener('submit', e => {
         return;
     } else {
         // Fetch will grab url
-        fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${searchText.value}&appid=19646f0f6fda25aa9456a943e1eda27b`)
+        fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${searchText.value}&units=imperial&appid=19646f0f6fda25aa9456a943e1eda27b`)
         // .then promise will return raw json response
         .then(function(response) {
             return response.json();
@@ -28,7 +28,7 @@ searchForm.addEventListener('submit', e => {
             // Function checking to make sure city is within United States
             checkLocation(data);
             function checkLocation(list) {
-                // Gets country code from API
+                // Defined variables with different pieces of data from api
                 let country = list.city.country;
 
                 // Checks country code to work for US cities only
@@ -40,9 +40,31 @@ searchForm.addEventListener('submit', e => {
                     // Shows error message if search is outside of United States
                     errorMessage.style.display = 'flex';
                     errorMessage.innerHTML = 'Please enter a valid search. City must be within United States.';
-                }
+                    return;
+                };
+                // Loop through data for manipulation
+                
+                // Bound data from api to variables
+                // KEEP IN MIND!!! THERE ARE 8 TIME STAMPS PER DAY
+                let cityName = list.city.name;
+                console.log(list.list); // Accesses nested data
+                // List.list[0] only pulls first timestamp for first day; Need to define all variables per day and find averages, highs, and lows
+                console.log(list.list[0]); // Pulls first piece of array in list
+                console.log(list.list[0].weather); // Gets cloudiness data
+                console.log(list.list[0].weather[0].description); // Returns text of cloudiness status
+                console.log(list.list[0].weather[0].icon); // Code for cloudiness icon
+                console.log(list.list[0].main); // Pulls temp data
+                // Create array of temps per day and find highest and lowest to display high/low temps per day
+                console.log(list.list[0].main.temp); // Gets avg temp (Farenheit defined in api link)
+                console.log(list.list[0].main.temp_min); // Gets low temp (Farenheit defined in api link)
+                console.log(list.list[0].main.temp_max); // Gets high temp (Farenheit defined in api link)
+                console.log(list.list[0].main.humidity); // Gets humidity (percentage)
+                console.log(list.list[0].wind.speed); // Wind speed
+                console.log(list.list[0].wind.gust); // Wind gust speed
+                console.log(list.list[0].wind.deg); // Wind direction
+                console.log(list.list[0].visibility) // Visibility
             };
-            // Loop through data for manipulation
+
 
             // Define current temperature, feels like, temp low, temp high, cloudiness (description), wind speed, visibility; as well as future forecast
             //let currentTemp = ;
