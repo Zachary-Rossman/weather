@@ -9,13 +9,15 @@ searchForm.addEventListener('submit', e => {
     // If text input is empty, no event takes place
     e.preventDefault();
 
-    // If 
+    // If statement to narrow search
     if (searchText.value === null) {
         // Define content for error message
         errorMessage.innerHTML = `Please enter a valid search`;
 
         // End function
         return;
+
+        // If there city has a US country code, function will continue
     } else {
         // Fetch will grab url
         fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${searchText.value}&units=imperial&appid=19646f0f6fda25aa9456a943e1eda27b`)
@@ -26,8 +28,8 @@ searchForm.addEventListener('submit', e => {
         // .then go to data
         .then(function (data) {
             // Function checking to make sure city is within United States
-            checkLocation(data);
-            function checkLocation(list) {
+            generateWeather(data);
+            function generateWeather(list) {
                 // Defined variables with different pieces of data from api
                 let country = list.city.country;
 
@@ -35,37 +37,126 @@ searchForm.addEventListener('submit', e => {
                 if (country === 'US') {
                     // Hides error section if previously shown
                     errorMessage.style.display = 'none';
-                    console.log(country);
                 } else {
                     // Shows error message if search is outside of United States
                     errorMessage.style.display = 'flex';
                     errorMessage.innerHTML = 'Please enter a valid search. City must be within United States.';
                     return;
                 };
-                // Loop through data for manipulation
-                
                 // Bound data from api to variables
                 // KEEP IN MIND!!! THERE ARE 8 TIME STAMPS PER DAY
+                // Create empty arrays and push values as needed to empty arrays for each day of forecast to be able to find highs, lows, and averages
                 let cityName = list.city.name;
-                console.log(list.list); // Accesses nested data
-                // List.list[0] only pulls first timestamp for first day; Need to define all variables per day and find averages, highs, and lows
-                console.log(list.list[0]); // Pulls first piece of array in list
-                console.log(list.list[0].weather); // Gets cloudiness data
-                console.log(list.list[0].weather[0].description); // Returns text of cloudiness status
-                console.log(list.list[0].weather[0].icon); // Code for cloudiness icon
-                console.log(list.list[0].main); // Pulls temp data
-                // Create array of temps per day and find highest and lowest to display high/low temps per day
-                console.log(list.list[0].main.temp); // Gets avg temp (Farenheit defined in api link)
-                console.log(list.list[0].main.temp_min); // Gets low temp (Farenheit defined in api link)
-                console.log(list.list[0].main.temp_max); // Gets high temp (Farenheit defined in api link)
-                console.log(list.list[0].main.humidity); // Gets humidity (percentage)
-                console.log(list.list[0].wind.speed); // Wind speed
-                console.log(list.list[0].wind.gust); // Wind gust speed
-                console.log(list.list[0].wind.deg); // Wind direction
-                console.log(list.list[0].visibility) // Visibility
+
+                // Returns text of cloudiness statuses per day
+                let cloudiness01 = [
+                    list.list[0].weather[0].description, 
+                    list.list[1].weather[0].description, 
+                    list.list[2].weather[0].description, 
+                    list.list[3].weather[0].description, 
+                    list.list[4].weather[0].description, 
+                    list.list[5].weather[0].description, 
+                    list.list[6].weather[0].description, 
+                    list.list[7].weather[0].description
+                ];
+
+                // Cloudiness icons per day
+                let cloudinessIcon01 = [
+                    list.list[0].weather[0].icon,
+                    list.list[1].weather[0].icon,
+                    list.list[2].weather[0].icon,
+                    list.list[3].weather[0].icon,
+                    list.list[4].weather[0].icon,
+                    list.list[5].weather[0].icon,
+                    list.list[6].weather[0].icon,
+                    list.list[7].weather[0].icon
+                ];
+
+                // Arrays of temps per day and find highest and lowest to display high/low temps per day
+                let temp01 = [
+                    list.list[0].main.temp,
+                    list.list[1].main.temp,
+                    list.list[2].main.temp,
+                    list.list[3].main.temp,
+                    list.list[4].main.temp,
+                    list.list[5].main.temp,
+                    list.list[6].main.temp,
+                    list.list[7].main.temp
+                ];
+
+                let lowTemp01 = [
+                    list.list[0].main.temp_min,
+                    list.list[1].main.temp_min,
+                    list.list[2].main.temp_min,
+                    list.list[3].main.temp_min,
+                    list.list[4].main.temp_min,
+                    list.list[5].main.temp_min,
+                    list.list[6].main.temp_min,
+                    list.list[7].main.temp_min
+                ];
+
+                let highTemp01 = [
+                    list.list[0].main.temp_max,
+                    list.list[1].main.temp_max,
+                    list.list[2].main.temp_max,
+                    list.list[3].main.temp_max,
+                    list.list[4].main.temp_max,
+                    list.list[5].main.temp_max,
+                    list.list[6].main.temp_max,
+                    list.list[7].main.temp_max
+                ];
+
+                // Humidity by day and time stamp
+                let humidity01 = [
+                    list.list[0].main.humidity,
+                    list.list[1].main.humidity,
+                    list.list[2].main.humidity,
+                    list.list[3].main.humidity,
+                    list.list[4].main.humidity,
+                    list.list[5].main.humidity,
+                    list.list[6].main.humidity,
+                    list.list[7].main.humidity,
+                ];
+
+                // Wind speed by day
+                let windSpeed01 = [
+                    list.list[0].wind.speed,
+                    list.list[1].wind.speed,
+                    list.list[2].wind.speed,
+                    list.list[3].wind.speed,
+                    list.list[4].wind.speed,
+                    list.list[5].wind.speed,
+                    list.list[6].wind.speed,
+                    list.list[7].wind.speed,
+                ];
+
+                // Wind gust by day
+                let windGust01 = [
+                    list.list[0].wind.gust,
+                    list.list[1].wind.gust,
+                    list.list[2].wind.gust,
+                    list.list[3].wind.gust,
+                    list.list[4].wind.gust,
+                    list.list[5].wind.gust,
+                    list.list[6].wind.gust,
+                    list.list[7].wind.gust,
+                ];
+
+                // Visibility
+                let visibility01 = [
+                    list.list[0].visibility,
+                    list.list[1].visibility,
+                    list.list[2].visibility,
+                    list.list[3].visibility,
+                    list.list[4].visibility,
+                    list.list[5].visibility,
+                    list.list[6].visibility,
+                    list.list[7].visibility,
+                ];
+                // End of promise
             };
 
-
+            // NEED DIFFERENT API CALL FOR CURRENT WEATHER!!!
             // Define current temperature, feels like, temp low, temp high, cloudiness (description), wind speed, visibility; as well as future forecast
             //let currentTemp = ;
             // let currentFeelLike = ;
