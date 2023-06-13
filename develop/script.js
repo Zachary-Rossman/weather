@@ -2,21 +2,18 @@ let homeBtn = document.querySelector(`#homeBtn`);
 let searchForm = document.querySelector(`#searchForm`);
 let searchText = document.querySelector(`#searchText`);
 let submitBtn = document.querySelector(`#submitBtn`);
-let weatherCard = document.querySelector(`#weatherCard`);
+let weatherCard = document.querySelector(`#weatherCards`);
 let errorMessage = document.querySelector(`#error`);
 
 searchForm.addEventListener('submit', e => {
     // If text input is empty, no event takes place
     e.preventDefault();
-
     // If statement to narrow search
     if (searchText.value === null) {
         // Define content for error message
         errorMessage.innerHTML = `Please enter a valid search`;
-
         // End function
         return;
-
         // If there city has a US country code, function will continue
     } else {
         // Fetch will grab url
@@ -32,7 +29,6 @@ searchForm.addEventListener('submit', e => {
             function generateWeather(list) {
                 // Defined variables with different pieces of data from api
                 let country = list.city.country;
-
                 // Checks country code to work for US cities only
                 if (country === 'US') {
                     // Hides error section if previously shown
@@ -43,10 +39,15 @@ searchForm.addEventListener('submit', e => {
                     errorMessage.innerHTML = 'Please enter a valid search. City must be within United States.';
                     return;
                 };
-                // Bound data from api to variables
-                // KEEP IN MIND!!! THERE ARE 8 TIME STAMPS PER DAY
-                // Create empty arrays and push values as needed to empty arrays for each day of forecast to be able to find highs, lows, and averages
+                // All data needed from api defined
                 let cityName = list.city.name;
+
+                // Dates; also marks index in list array where each day begins
+                let date01 = list.list[0].dt_txt;
+                let date02 = list.list[8].dt_txt;
+                let date03 = list.list[16].dt_txt;
+                let date04 = list.list[24].dt_txt;
+                let date05 = list.list[32].dt_txt;
 
                 // Returns text of cloudiness statuses per day
                 let cloudiness01 = [
@@ -153,83 +154,33 @@ searchForm.addEventListener('submit', e => {
                     list.list[6].visibility,
                     list.list[7].visibility,
                 ];
-                // End of promise
+
+                // Display cloudiness icon in card by day
+                let cloudinessIconDom01 = document.querySelector(`#cloudinessIcon01`);
+
+                // Display high temp for each day
+                let highTempDom01 = document.querySelector(`#tempHigh01`);
+
+                // Display low temp for each day
+                let lowTempDom01 = document.querySelector(`#tempLow01`);
+
+                // Display cloudiness for each day
+                let cloudinessDom01 = document.querySelector(`#cloudiness01`);
+
+                // Display wind speed by day
+                let windSpeedDom01 = document.querySelector(`#windSpeed01`);
+
+                // Display wind gust by day
+                let windGustDom01 = document.querySelector(`#windGust01`);
+
+                // Display humidity by day
+                let humidityDom01 = document.querySelector(`#humidity01`);
+
+                // Display visibility by day
+                let visibilityDom01 = document.querySelector(`#visibility01`);
+
+                // End of fetch
             };
-
-            // NEED DIFFERENT API CALL FOR CURRENT WEATHER!!!
-            // Define current temperature, feels like, temp low, temp high, cloudiness (description), wind speed, visibility; as well as future forecast
-            //let currentTemp = ;
-            // let currentFeelLike = ;
-            // let currentCloudiness = ;
-            // let currentLow = ;
-            // let currentHigh = ;
-            // let currentHumidity = ;
-            // let currentWindSpeed = ;
-            // let currentVisibility = ;
-            // let lastUpdate (meta.lastUpdate);
-            
-            // Define forecasted items one day out
-            // let oneTemp = ;
-            // let oneFeelLike = ;
-            // let oneCloudiness = ;
-            // let oneLow = ;
-            // let oneHigh = ;
-            // let oneHumidity = ;
-            // let oneWindSpeed = ;
-            // let oneVisibility = ;
-            // let sunRise = sun.rise;
-            // let sunSet = sun.set;
-
-            // Define forecasted items two days out
-            // let twoTemp = ;
-            // let twoFeelLike = ;
-            // let twoCloudiness = ;
-            // let twoLow = ;
-            // let twoHigh = ;
-            // let twoHumidity = ;
-            // let twoWindSpeed = ;
-            // let twoVisibility = ;
-            // let sunRise = sun.rise;
-            // let sunSet = sun.set;
-
-            // Define forecasted items three days out
-            // let threeTemp = ;
-            // let threeFeelLike = ;
-            // let threeCloudiness = ;
-            // let threeLow = ;
-            // let threeHigh = ;
-            // let threeHumidity = ;
-            // let threeWindSpeed = ;
-            // let threeVisibility = ;
-            // let sunRise = sun.rise;
-            // let sunSet = sun.set;
-
-            // Define forecasted items four days out
-            // let fourTemp = ;
-            // let fourFeelLike = ;
-            // let fourCloudiness = ;
-            // let fourLow = ;
-            // let fourHigh = ;
-            // let fourHumidity = ;
-            // let fourWindSpeed = ;
-            // let fourVisibility = ;
-            // let sunRise = sun.rise;
-            // let sunSet = sun.set;
-
-            // Define forecasted items five days out
-            // let fiveTemp = ;
-            // let fiveFeelLike = ;
-            // let fiveCloudiness = ;
-            // let fiveLow = ;
-            // let fiveHigh = ;
-            // let fiveHumidity = ;
-            // let fiveWindSpeed = ;
-            // let fiveVisibility = ;
-            // let sunRise = sun.rise;
-            // let sunSet = sun.set;
-
-            // Set all text and append to HTML
-
         })
     };
 });
