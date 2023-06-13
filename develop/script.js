@@ -432,25 +432,68 @@ searchForm.addEventListener('submit', e => {
                 cityNameDom.textContent = `5-day forecast for ${cityName}`;
 
                 // Display date on top of each weather card
+                // Day 1
                 let dateDom01 = document.querySelector(`#date01`);
                 dateDom01.textContent = date01;
+                // Day 2
+                let dateDom02 = document.querySelector(`#date02`);
+                dateDom02.textContent = date02;
+                // Day 3
+                let dateDom03 = document.querySelector(`#date03`);
+                dateDom03.textContent = date03;
+                // Day 4
+                let dateDom04 = document.querySelector(`#date04`);
+                dateDom04.textContent = date04;
+                // Day 5
+                let dateDom05 = document.querySelector(`#date05`);
+                dateDom05.textContent = date05;
 
                 // Display cloudiness icon in card by day; ICON NOT SHOWING
                 // let cloudinessIconDom01 = document.querySelector(`#cloudinessIcon01`);
                 // cloudinessIconDom01.innerHTML = `${cloudinessIcon01[0]}`
 
                 // Display high temp for each day
+                //Day 1
                 let highTempDom01 = document.querySelector(`#tempHigh01`);
                 highTempDom01.textContent = `High Temperature: ${parseInt(Math.max(...highTemp01))} °F`;
+                // Day 2
+                let highTempDom02 = document.querySelector(`#tempHigh02`);
+                highTempDom02.textContent = `High Temperature: ${parseInt(Math.max(...highTemp02))} °F`;
+                // Day 3
+                let highTempDom03 = document.querySelector(`#tempHigh03`);
+                highTempDom03.textContent = `High Temperature: ${parseInt(Math.max(...highTemp03))} °F`;
+                // Day 4
+                let highTempDom04 = document.querySelector(`#tempHigh04`);
+                highTempDom04.textContent = `High Temperature: ${parseInt(Math.max(...highTemp04))} °F`;
+                // Day 5
+                let highTempDom05 = document.querySelector(`#tempHigh05`);
+                highTempDom05.textContent = `High Temperature: ${parseInt(Math.max(...highTemp05))} °F`;
 
                 // Display low temp for each day
+                // Day 1
                 let lowTempDom01 = document.querySelector(`#tempLow01`);
                 lowTempDom01.textContent = `Low Temperature: ${parseInt(Math.min(...lowTemp01))} °F`;
+                // Day 2
+                let lowTempDom02 = document.querySelector(`#tempLow02`);
+                lowTempDom02.textContent = `Low Temperature: ${parseInt(Math.min(...lowTemp02))} °F`;
+                // Day 3
+                let lowTempDom03 = document.querySelector(`#tempLow03`);
+                lowTempDom03.textContent = `Low Temperature: ${parseInt(Math.min(...lowTemp03))} °F`;
+                // Day 4
+                let lowTempDom04 = document.querySelector(`#tempLow04`);
+                lowTempDom04.textContent = `Low Temperature: ${parseInt(Math.min(...lowTemp04))} °F`;
+                // Day 5
+                let lowTempDom05 = document.querySelector(`#tempLow05`);
+                lowTempDom05.textContent = `Low Temperature: ${parseInt(Math.min(...lowTemp05))} °F`;
 
                 // Display cloudiness for each day
                 let cloudinessDom01 = document.querySelector(`#cloudiness01`);
-
+                let cloudinessDom02 = document.querySelector(`#cloudiness02`);
+                let cloudinessDom03 = document.querySelector(`#cloudiness03`);
+                let cloudinessDom04 = document.querySelector(`#cloudiness04`);
+                let cloudinessDom05 = document.querySelector(`#cloudiness05`);
                 // Loop through cloudiness each day to display most frequent item in that array
+                // Day 1
                 for(let i in cloudiness01) {
                     let frequency = [];
                     let max = 0;
@@ -463,19 +506,114 @@ searchForm.addEventListener('submit', e => {
                         // Show result in element
                         cloudinessDom01.textContent = result;
                     };
-            };
+                };
+                // Day 2
+                for(let i in cloudiness02) {
+                    let frequency = [];
+                    let max = 0;
+                    frequency[cloudiness02[i]] = (frequency[cloudiness02[i]] || 0)+1; // increment frequency.
+                    if(frequency[cloudiness02[i]] > max) {
+                        // update max
+                        max = frequency[cloudiness02[i]];
+                        // update result
+                        result = cloudiness02[i];
+                        // Show result in element
+                        cloudinessDom02.textContent = result;
+                    };
+                };
+                // Day 3
+                for(let i in cloudiness03) {
+                    let frequency = [];
+                    let max = 0;
+                    frequency[cloudiness03[i]] = (frequency[cloudiness03[i]] || 0)+1; // increment frequency.
+                    if(frequency[cloudiness03[i]] > max) {
+                        // update max
+                        max = frequency[cloudiness03[i]];
+                        // update result
+                        result = cloudiness03[i];
+                        // Show result in element
+                        cloudinessDom03.textContent = result;
+                    };
+                };
+                // Day 4
+                for(let i in cloudiness04) {
+                    let frequency = [];
+                    let max = 0;
+                    frequency[cloudiness04[i]] = (frequency[cloudiness04[i]] || 0)+1; // increment frequency.
+                    if(frequency[cloudiness04[i]] > max) {
+                        // update max
+                        max = frequency[cloudiness04[i]];
+                        // update result
+                        result = cloudiness04[i];
+                        // Show result in element
+                        cloudinessDom04.textContent = result;
+                    };
+                };
+                // Day 5
+                for(let i in cloudiness05) {
+                    let frequency = [];
+                    let max = 0;
+                    frequency[cloudiness05[i]] = (frequency[cloudiness05[i]] || 0)+1; // increment frequency.
+                    if(frequency[cloudiness05[i]] > max) {
+                        // update max
+                        max = frequency[cloudiness05[i]];
+                        // update result
+                        result = cloudiness05[i];
+                        // Show result in element
+                        cloudinessDom05.textContent = result;
+                    };
+                };
 
                 // Display wind speed by day
+                // Day 1
                 let windSpeedDom01 = document.querySelector(`#windSpeed01`);
                 windSpeedDom01.innerHTML = `Maximum Wind Speed: ${parseInt(Math.max(...windSpeed01))}mph <br> Minimum Wind Speed: ${parseInt(Math.min(...windSpeed01))}mph`;
+                // Day 2
+                let windSpeedDom02 = document.querySelector(`#windSpeed02`);
+                windSpeedDom02.innerHTML = `Maximum Wind Speed: ${parseInt(Math.max(...windSpeed02))}mph <br> Minimum Wind Speed: ${parseInt(Math.min(...windSpeed02))}mph`;
+                // Day 3
+                let windSpeedDom03 = document.querySelector(`#windSpeed03`);
+                windSpeedDom03.innerHTML = `Maximum Wind Speed: ${parseInt(Math.max(...windSpeed03))}mph <br> Minimum Wind Speed: ${parseInt(Math.min(...windSpeed03))}mph`;
+                // Day 4
+                let windSpeedDom04 = document.querySelector(`#windSpeed04`);
+                windSpeedDom04.innerHTML = `Maximum Wind Speed: ${parseInt(Math.max(...windSpeed04))}mph <br> Minimum Wind Speed: ${parseInt(Math.min(...windSpeed04))}mph`;
+                // Day 5
+                let windSpeedDom05 = document.querySelector(`#windSpeed05`);
+                windSpeedDom05.innerHTML = `Maximum Wind Speed: ${parseInt(Math.max(...windSpeed05))}mph <br> Minimum Wind Speed: ${parseInt(Math.min(...windSpeed05))}mph`;
 
                 // Display wind gust by day
+                // Day 1
                 let windGustDom01 = document.querySelector(`#windGust01`);
                 windGustDom01.innerHTML = `Maximum Wind Gust: ${parseInt(Math.max(...windGust01))}mph <br> Minimum Wind Gust: ${parseInt(Math.min(...windGust01))}mph`;
+                // Day 2
+                let windGustDom02 = document.querySelector(`#windGust02`);
+                windGustDom02.innerHTML = `Maximum Wind Gust: ${parseInt(Math.max(...windGust02))}mph <br> Minimum Wind Gust: ${parseInt(Math.min(...windGust02))}mph`;
+                // Day 3
+                let windGustDom03 = document.querySelector(`#windGust03`);
+                windGustDom03.innerHTML = `Maximum Wind Gust: ${parseInt(Math.max(...windGust03))}mph <br> Minimum Wind Gust: ${parseInt(Math.min(...windGust03))}mph`;
+                // Day 4
+                let windGustDom04 = document.querySelector(`#windGust04`);
+                windGustDom04.innerHTML = `Maximum Wind Gust: ${parseInt(Math.max(...windGust04))}mph <br> Minimum Wind Gust: ${parseInt(Math.min(...windGust04))}mph`;
+                // Day 5
+                let windGustDom05 = document.querySelector(`#windGust05`);
+                windGustDom05.innerHTML = `Maximum Wind Gust: ${parseInt(Math.max(...windGust05))}mph <br> Minimum Wind Gust: ${parseInt(Math.min(...windGust05))}mph`;
 
                 // Display humidity by day
+                // Day 1
                 let humidityDom01 = document.querySelector(`#humidity01`);
                 humidityDom01.innerHTML = `Maximum Humidity: ${parseInt(Math.max(...humidity01))}% <br> Minimum Humidity: ${parseInt(Math.min(...humidity01))}%`;
+                // Day 2
+                let humidityDom02 = document.querySelector(`#humidity02`);
+                humidityDom02.innerHTML = `Maximum Humidity: ${parseInt(Math.max(...humidity02))}% <br> Minimum Humidity: ${parseInt(Math.min(...humidity02))}%`;
+                // Day 3
+                let humidityDom03 = document.querySelector(`#humidity03`);
+                humidityDom03.innerHTML = `Maximum Humidity: ${parseInt(Math.max(...humidity03))}% <br> Minimum Humidity: ${parseInt(Math.min(...humidity03))}%`;
+                // Day 4
+                let humidityDom04 = document.querySelector(`#humidity04`);
+                humidityDom04.innerHTML = `Maximum Humidity: ${parseInt(Math.max(...humidity04))}% <br> Minimum Humidity: ${parseInt(Math.min(...humidity04))}%`;
+                // Day 5
+                let humidityDom05 = document.querySelector(`#humidity05`);
+                humidityDom05.innerHTML = `Maximum Humidity: ${parseInt(Math.max(...humidity05))}% <br> Minimum Humidity: ${parseInt(Math.min(...humidity05))}%`;
 
                 // End of fetch
             };
