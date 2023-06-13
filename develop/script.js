@@ -1,4 +1,3 @@
-let homeBtn = document.querySelector(`#homeBtn`);
 let searchForm = document.querySelector(`#searchForm`);
 let searchText = document.querySelector(`#searchText`);
 let submitBtn = document.querySelector(`#submitBtn`);
@@ -155,17 +154,43 @@ searchForm.addEventListener('submit', e => {
                     list.list[7].visibility,
                 ];
 
-                // Display cloudiness icon in card by day
-                let cloudinessIconDom01 = document.querySelector(`#cloudinessIcon01`);
+                // Display name of city searched
+                let cityNameDom = document.querySelector(`#cityName`);
+                cityNameDom.textContent = `5-day forecast for ${cityName}`;
+
+                // Display date on top of each weather card
+                let dateDom01 = document.querySelector(`#date01`);
+                dateDom01.textContent = date01;
+
+                // Display cloudiness icon in card by day; ICON NOT SHOWING
+                // let cloudinessIconDom01 = document.querySelector(`#cloudinessIcon01`);
+                // cloudinessIconDom01.innerHTML = `${cloudinessIcon01[0]}`
 
                 // Display high temp for each day
                 let highTempDom01 = document.querySelector(`#tempHigh01`);
+                highTempDom01.textContent = "High Temperature: " + parseInt(Math.max(...highTemp01));
 
                 // Display low temp for each day
                 let lowTempDom01 = document.querySelector(`#tempLow01`);
+                lowTempDom01.textContent = "Low Temperature: " + parseInt(Math.min(...lowTemp01));
 
                 // Display cloudiness for each day
                 let cloudinessDom01 = document.querySelector(`#cloudiness01`);
+
+                // Loop through cloudiness each day to display most frequent item in that array
+                for(let i in cloudiness01) {
+                    let frequency = [];
+                    let max = 0;
+                    frequency[cloudiness01[i]] = (frequency[cloudiness01[i]] || 0)+1; // increment frequency.
+                    if(frequency[cloudiness01[i]] > max) {
+                        // update max
+                        max = frequency[cloudiness01[i]];
+                        // update result
+                        result = cloudiness01[i];
+                        // Show result in element
+                        cloudinessDom01.textContent = result;
+                    };
+            };
 
                 // Display wind speed by day
                 let windSpeedDom01 = document.querySelector(`#windSpeed01`);
