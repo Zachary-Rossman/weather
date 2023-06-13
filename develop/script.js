@@ -114,58 +114,58 @@ searchForm.addEventListener('submit', e => {
                     list.list[39].weather[0].description
                 ];
 
-                // // CLOUDINESS ICONS ONLY SHOWING CODE IN HTML; NOT DISPLAYING ICONS
-                // // Cloudiness icons per day
-                // let cloudinessIcon01 = [
-                //     list.list[0].weather[0].icon,
-                //     list.list[1].weather[0].icon,
-                //     list.list[2].weather[0].icon,
-                //     list.list[3].weather[0].icon,
-                //     list.list[4].weather[0].icon,
-                //     list.list[5].weather[0].icon,
-                //     list.list[6].weather[0].icon,
-                //     list.list[7].weather[0].icon
-                // ];
-                // let cloudinessIcon02 = [
-                //     list.list[8].weather[0].icon,
-                //     list.list[9].weather[0].icon,
-                //     list.list[10].weather[0].icon,
-                //     list.list[11].weather[0].icon,
-                //     list.list[12].weather[0].icon,
-                //     list.list[13].weather[0].icon,
-                //     list.list[14].weather[0].icon,
-                //     list.list[15].weather[0].icon
-                // ];
-                // let cloudinessIcon03 = [
-                //     list.list[16].weather[0].icon,
-                //     list.list[17].weather[0].icon,
-                //     list.list[18].weather[0].icon,
-                //     list.list[19].weather[0].icon,
-                //     list.list[20].weather[0].icon,
-                //     list.list[21].weather[0].icon,
-                //     list.list[22].weather[0].icon,
-                //     list.list[23].weather[0].icon
-                // ];
-                // let cloudinessIcon04 = [
-                //     list.list[24].weather[0].icon,
-                //     list.list[25].weather[0].icon,
-                //     list.list[26].weather[0].icon,
-                //     list.list[27].weather[0].icon,
-                //     list.list[28].weather[0].icon,
-                //     list.list[29].weather[0].icon,
-                //     list.list[30].weather[0].icon,
-                //     list.list[31].weather[0].icon
-                // ];
-                // let cloudinessIcon05 = [
-                //     list.list[32].weather[0].icon,
-                //     list.list[33].weather[0].icon,
-                //     list.list[34].weather[0].icon,
-                //     list.list[35].weather[0].icon,
-                //     list.list[36].weather[0].icon,
-                //     list.list[37].weather[0].icon,
-                //     list.list[38].weather[0].icon,
-                //     list.list[39].weather[0].icon
-                // ];
+                // CLOUDINESS ICONS ONLY SHOWING CODE IN HTML; NOT DISPLAYING ICONS
+                // Cloudiness icons per day
+                let cloudinessIcon01 = [
+                    list.list[0].weather[0].icon,
+                    list.list[1].weather[0].icon,
+                    list.list[2].weather[0].icon,
+                    list.list[3].weather[0].icon,
+                    list.list[4].weather[0].icon,
+                    list.list[5].weather[0].icon,
+                    list.list[6].weather[0].icon,
+                    list.list[7].weather[0].icon
+                ];
+                let cloudinessIcon02 = [
+                    list.list[8].weather[0].icon,
+                    list.list[9].weather[0].icon,
+                    list.list[10].weather[0].icon,
+                    list.list[11].weather[0].icon,
+                    list.list[12].weather[0].icon,
+                    list.list[13].weather[0].icon,
+                    list.list[14].weather[0].icon,
+                    list.list[15].weather[0].icon
+                ];
+                let cloudinessIcon03 = [
+                    list.list[16].weather[0].icon,
+                    list.list[17].weather[0].icon,
+                    list.list[18].weather[0].icon,
+                    list.list[19].weather[0].icon,
+                    list.list[20].weather[0].icon,
+                    list.list[21].weather[0].icon,
+                    list.list[22].weather[0].icon,
+                    list.list[23].weather[0].icon
+                ];
+                let cloudinessIcon04 = [
+                    list.list[24].weather[0].icon,
+                    list.list[25].weather[0].icon,
+                    list.list[26].weather[0].icon,
+                    list.list[27].weather[0].icon,
+                    list.list[28].weather[0].icon,
+                    list.list[29].weather[0].icon,
+                    list.list[30].weather[0].icon,
+                    list.list[31].weather[0].icon
+                ];
+                let cloudinessIcon05 = [
+                    list.list[32].weather[0].icon,
+                    list.list[33].weather[0].icon,
+                    list.list[34].weather[0].icon,
+                    list.list[35].weather[0].icon,
+                    list.list[36].weather[0].icon,
+                    list.list[37].weather[0].icon,
+                    list.list[38].weather[0].icon,
+                    list.list[39].weather[0].icon
+                ];
 
                 // Low Temperatures
                 let lowTemp01 = [
@@ -449,8 +449,9 @@ searchForm.addEventListener('submit', e => {
                 dateDom05.textContent = date05;
 
                 // Display cloudiness icon in card by day; ICON NOT SHOWING
+                // Loop through each day to find most frequent item in array just like with cloudiness down below
                 // let cloudinessIconDom01 = document.querySelector(`#cloudinessIcon01`);
-                // cloudinessIconDom01.innerHTML = `${cloudinessIcon01[0]}`
+                // cloudinessIcon01.innerHTML = `<img src="icons/${icon}.png">`;
 
                 // Display high temp for each day
                 //Day 1
