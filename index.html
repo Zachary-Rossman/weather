@@ -4,74 +4,75 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
     <script defer src="./develop/script.js"></script>
     <title>Weather Tracker</title>
 </head>
-<body>
-    <header>
-        <h1>5 Day Forecast</h1>
+<body class="justify-items-center max-w-full">
+    <header class="mt-4 space-x-36 max-w-full content-center">
+        <h1 class="content-center">5 Day Forecast</h1>
     </header>
-    <main>
+    <main class="content-center">
         <div id="error"></div>
-        <form id="searchForm" action="/" method="GET">
+        <form class="content-center" id="searchForm" action="/" method="GET">
             <label for="searchText">Enter City Here</label>
-            <input id="searchText" type="text" name="searchText">
-            <button id="submitBtn" type="submit">Search</button>
+            <input class="bg-gray-200 mt-4 content-center border-solid-black" id="searchText" type="text" name="searchText">
+            <button class="bg-gray-200 mt-4 content-center" id="submitBtn" type="submit">Search</button>
         </form>
-        <article id="weatherCards">
 
-            <!-- Displays name of city searched -->
-            <h3 id="cityName"></h3>
+        <!-- Displays name of city searched -->
+        <h3 id="cityName"></h3>
 
-            <div id="weather01">
-                <div id="date01"></div>
+        <article class="content-center justify-items-stretch" id="weatherCards" style="display: flex; justify-content: space-between; max-width: fit-content;">
+            <div class="max-w-sm rounded overflow-hidden shadow-lg" id="weather01">
                 <img src="" alt="Weather Icon" id="cloudinessIcon01">
-                <div id="cloudiness01"></div>
-                <div id="tempHigh01"></div>
-                <div id="tempLow01"></div>
-                <div id="windSpeed01"></div>
-                <div id="windGust01"></div>
-                <div id="humidity01"></div>
+                <h5 id="date01"></h5>
+                <p id="cloudiness01"></p>
+                <p id="tempHigh01"></p>
+                <p id="tempLow01"></p>
+                <p id="windSpeed01"></p>
+                <p id="windGust01"></p>
+                <p id="humidity01"></p>
             </div>
-            <div id="weather02">
-                <div id="date02"></div>
+            <div class="max-w-sm rounded overflow-hidden shadow-lg" id="weather02">
                 <img src="" alt="Weather Icon" id="cloudinessIcon02">
-                <div id="cloudiness02"></div>
-                <div id="tempHigh02"></div>
-                <div id="tempLow02"></div>
-                <div id="windSpeed02"></div>
-                <div id="windGust02"></div>
-                <div id="humidity02"></div>
+                <h5 id="date02"></h5>
+                <p id="cloudiness02"></p>
+                <p id="tempHigh02"></p>
+                <p id="tempLow02"></p>
+                <p id="windSpeed02"></p>
+                <p id="windGust02"></p>
+                <p id="humidity02"></p>
             </div>
-            <div id="weather03">
-                <div id="date03"></div>
+            <div class="max-w-sm rounded overflow-hidden shadow-lg" id="weather03">
                 <img src="" alt="Weather Icon" id="cloudinessIcon03">
-                <div id="cloudiness03"></div>
-                <div id="tempHigh03"></div>
-                <div id="tempLow03"></div>
-                <div id="windSpeed03"></div>
-                <div id="windGust03"></div>
-                <div id="humidity03"></div>
+                <h5 id="date03"></h5>
+                <p id="cloudiness03"></p>
+                <p id="tempHigh03"></p>
+                <p id="tempLow03"></p>
+                <p id="windSpeed03"></p>
+                <p id="windGust03"></p>
+                <p id="humidity03"></p>
             </div>
-            <div id="weather04">
-                <div id="date04"></div>
+            <div class="max-w-sm rounded overflow-hidden shadow-lg" id="weather04">
                 <img src="" alt="Weather Icon" id="cloudinessIcon04">
-                <div id="cloudiness04"></div>
-                <div id="tempHigh04"></div>
-                <div id="tempLow04"></div>
-                <div id="windSpeed04"></div>
-                <div id="windGust04"></div>
-                <div id="humidity04"></div>
+                <h5 id="date04"></h5>
+                <p id="cloudiness04"></p>
+                <p id="tempHigh04"></p>
+                <p id="tempLow04"></p>
+                <p id="windSpeed04"></p>
+                <p id="windGust04"></p>
+                <p id="humidity04"></p>
             </div>
-            <div id="weather05">
-                <div id="date05"></div>
+            <div class="max-w-sm rounded overflow-hidden shadow-lg" id="weather05">
                 <img src="" alt="Weather Icon" id="cloudinessIcon05">
-                <div id="cloudiness05"></div>
-                <div id="tempHigh05"></div>
-                <div id="tempLow05"></div>
-                <div id="windSpeed05"></div>
-                <div id="windGust05"></div>
-                <div id="humidity05"></div>
+                <h5 id="date05"></h5>
+                <p id="cloudiness05"></p>
+                <p id="tempHigh05"></p>
+                <p id="tempLow05"></p>
+                <p id="windSpeed05"></p>
+                <p id="windGust05"></p>
+                <p id="humidity05"></p>
             </div>
         </article>
     </main>

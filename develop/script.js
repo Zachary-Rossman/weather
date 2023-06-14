@@ -4,6 +4,18 @@ let submitBtn = document.querySelector(`#submitBtn`);
 let weatherCard = document.querySelector(`#weatherCards`);
 let errorMessage = document.querySelector(`#error`);
 
+let weatherIcon01 = document.querySelector(`#cloudinessIcon01`);
+let weatherIcon02 = document.querySelector(`#cloudinessIcon02`);
+let weatherIcon03 = document.querySelector(`#cloudinessIcon03`);
+let weatherIcon04 = document.querySelector(`#cloudinessIcon04`);
+let weatherIcon05 = document.querySelector(`#cloudinessIcon05`);
+
+weatherIcon01.style.display = 'none';
+weatherIcon02.style.display = 'none';
+weatherIcon03.style.display = 'none';
+weatherIcon04.style.display = 'none';
+weatherIcon05.style.display = 'none';
+
 searchForm.addEventListener('submit', e => {
     // If text input is empty, no event takes place
     e.preventDefault();
@@ -434,6 +446,7 @@ searchForm.addEventListener('submit', e => {
                         // update result
                         let result = cloudinessIcon01[i];
                         // Show result in element
+                        weatherIcon01.style.display = 'block';
                         document.querySelector(`#cloudinessIcon01`).src = `https://openweathermap.org/img/w/${result}.png`;
                     };
                 };
@@ -448,6 +461,7 @@ searchForm.addEventListener('submit', e => {
                         // update result
                         let result = cloudinessIcon02[i];
                         // Show result in element
+                        weatherIcon02.style.display = 'block';
                         document.querySelector(`#cloudinessIcon02`).src = `https://openweathermap.org/img/w/${result}.png`;
                     };
                 };
@@ -462,8 +476,8 @@ searchForm.addEventListener('submit', e => {
                         // update result
                         let result = cloudinessIcon03[i];
                         // Show result in element
+                        weatherIcon03.style.display = 'block';
                         document.querySelector(`#cloudinessIcon03`).src = `https://openweathermap.org/img/w/${result}.png`;
-                        // cloudinessDom01.innerHTML = result;
                     };
                 };
                 // Day 4
@@ -477,8 +491,8 @@ searchForm.addEventListener('submit', e => {
                         // update result
                         let result = cloudinessIcon04[i];
                         // Show result in element
+                        weatherIcon04.style.display = 'block';
                         document.querySelector(`#cloudinessIcon04`).src = `https://openweathermap.org/img/w/${result}.png`;
-                        // cloudinessDom01.innerHTML = result;
                     };
                 };
                 // Day 5
@@ -492,8 +506,8 @@ searchForm.addEventListener('submit', e => {
                         // update result
                         let result = cloudinessIcon05[i];
                         // Show result in element
+                        weatherIcon05.style.display = 'block';
                         document.querySelector(`#cloudinessIcon05`).src = `https://openweathermap.org/img/w/${result}.png`;
-                        // cloudinessDom01.innerHTML = result;
                     };
                 };
 
