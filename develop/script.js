@@ -69,9 +69,6 @@ searchForm.addEventListener('submit', e => {
                     list.list[2].weather[0].description, 
                     list.list[3].weather[0].description, 
                     list.list[4].weather[0].description, 
-                    list.list[5].weather[0].description, 
-                    list.list[6].weather[0].description, 
-                    list.list[7].weather[0].description
                 ];
                 let cloudiness02 = [
                     list.list[8].weather[0].description, 
@@ -79,9 +76,6 @@ searchForm.addEventListener('submit', e => {
                     list.list[10].weather[0].description, 
                     list.list[11].weather[0].description, 
                     list.list[12].weather[0].description, 
-                    list.list[13].weather[0].description, 
-                    list.list[14].weather[0].description, 
-                    list.list[15].weather[0].description
                 ];
                 let cloudiness03 = [
                     list.list[16].weather[0].description, 
@@ -89,9 +83,6 @@ searchForm.addEventListener('submit', e => {
                     list.list[18].weather[0].description, 
                     list.list[19].weather[0].description, 
                     list.list[20].weather[0].description, 
-                    list.list[21].weather[0].description, 
-                    list.list[22].weather[0].description, 
-                    list.list[23].weather[0].description
                 ];
                 let cloudiness04 = [
                     list.list[24].weather[0].description, 
@@ -99,9 +90,6 @@ searchForm.addEventListener('submit', e => {
                     list.list[26].weather[0].description, 
                     list.list[27].weather[0].description, 
                     list.list[28].weather[0].description, 
-                    list.list[29].weather[0].description, 
-                    list.list[30].weather[0].description, 
-                    list.list[31].weather[0].description
                 ];
                 let cloudiness05 = [
                     list.list[32].weather[0].description, 
@@ -109,32 +97,27 @@ searchForm.addEventListener('submit', e => {
                     list.list[34].weather[0].description, 
                     list.list[35].weather[0].description, 
                     list.list[36].weather[0].description, 
-                    list.list[37].weather[0].description, 
-                    list.list[38].weather[0].description, 
-                    list.list[39].weather[0].description
                 ];
 
                 // CLOUDINESS ICONS ONLY SHOWING CODE IN HTML; NOT DISPLAYING ICONS
                 // Cloudiness icons per day
                 let cloudinessIcon01 = [
-                    list.list[0].weather[0].icon,
-                    list.list[1].weather[0].icon,
-                    list.list[2].weather[0].icon,
-                    list.list[3].weather[0].icon,
-                    list.list[4].weather[0].icon,
-                    list.list[5].weather[0].icon,
-                    list.list[6].weather[0].icon,
-                    list.list[7].weather[0].icon
+                    list.list[0].weather[0].icon, //0900
+                    list.list[1].weather[0].icon, //1200
+                    list.list[2].weather[0].icon, //1500
+                    list.list[3].weather[0].icon, //1800
+                    list.list[4].weather[0].icon, //2100
+                    // list.list[5].weather[0].icon, //00
+                    // list.list[6].weather[0].icon, //0300
+                    // list.list[7].weather[0].icon // 0600
                 ];
+
                 let cloudinessIcon02 = [
                     list.list[8].weather[0].icon,
                     list.list[9].weather[0].icon,
                     list.list[10].weather[0].icon,
                     list.list[11].weather[0].icon,
                     list.list[12].weather[0].icon,
-                    list.list[13].weather[0].icon,
-                    list.list[14].weather[0].icon,
-                    list.list[15].weather[0].icon
                 ];
                 let cloudinessIcon03 = [
                     list.list[16].weather[0].icon,
@@ -142,9 +125,6 @@ searchForm.addEventListener('submit', e => {
                     list.list[18].weather[0].icon,
                     list.list[19].weather[0].icon,
                     list.list[20].weather[0].icon,
-                    list.list[21].weather[0].icon,
-                    list.list[22].weather[0].icon,
-                    list.list[23].weather[0].icon
                 ];
                 let cloudinessIcon04 = [
                     list.list[24].weather[0].icon,
@@ -152,9 +132,6 @@ searchForm.addEventListener('submit', e => {
                     list.list[26].weather[0].icon,
                     list.list[27].weather[0].icon,
                     list.list[28].weather[0].icon,
-                    list.list[29].weather[0].icon,
-                    list.list[30].weather[0].icon,
-                    list.list[31].weather[0].icon
                 ];
                 let cloudinessIcon05 = [
                     list.list[32].weather[0].icon,
@@ -162,9 +139,6 @@ searchForm.addEventListener('submit', e => {
                     list.list[34].weather[0].icon,
                     list.list[35].weather[0].icon,
                     list.list[36].weather[0].icon,
-                    list.list[37].weather[0].icon,
-                    list.list[38].weather[0].icon,
-                    list.list[39].weather[0].icon
                 ];
 
                 // Low Temperatures
@@ -448,10 +422,80 @@ searchForm.addEventListener('submit', e => {
                 let dateDom05 = document.querySelector(`#date05`);
                 dateDom05.textContent = date05;
 
-                // Display cloudiness icon in card by day; ICON NOT SHOWING
-                // Loop through each day to find most frequent item in array just like with cloudiness down below
-                // let cloudinessIconDom01 = document.querySelector(`#cloudinessIcon01`);
-                // cloudinessIcon01.innerHTML = `<img src="icons/${icon}.png">`;
+                // Loop to find most frequent weatherIcon for each day
+                // Day 1
+                for(let i in cloudinessIcon01) {
+                    let frequency = [];
+                    let max = 0;
+                    frequency[cloudinessIcon01[i]] = (frequency[cloudinessIcon01[i]] || 0)+1; // increment frequency.
+                    if(frequency[cloudinessIcon01[i]] > max) {
+                        // update max
+                        max = frequency[cloudinessIcon01[i]];
+                        // update result
+                        let result = cloudinessIcon01[i];
+                        // Show result in element
+                        document.querySelector(`#cloudinessIcon01`).src = `https://openweathermap.org/img/w/${result}.png`;
+                    };
+                };
+                // Day 2
+                for(let i in cloudinessIcon02) {
+                    let frequency = [];
+                    let max = 0;
+                    frequency[cloudinessIcon02[i]] = (frequency[cloudinessIcon02[i]] || 0)+1; // increment frequency.
+                    if(frequency[cloudinessIcon02[i]] > max) {
+                        // update max
+                        max = frequency[cloudinessIcon02[i]];
+                        // update result
+                        let result = cloudinessIcon02[i];
+                        // Show result in element
+                        document.querySelector(`#cloudinessIcon02`).src = `https://openweathermap.org/img/w/${result}.png`;
+                    };
+                };
+                // Day 3
+                for(let i in cloudinessIcon03) {
+                    let frequency = [];
+                    let max = 0;
+                    frequency[cloudinessIcon03[i]] = (frequency[cloudinessIcon03[i]] || 0)+1; // increment frequency.
+                    if(frequency[cloudinessIcon03[i]] > max) {
+                        // update max
+                        max = frequency[cloudinessIcon03[i]];
+                        // update result
+                        let result = cloudinessIcon03[i];
+                        // Show result in element
+                        document.querySelector(`#cloudinessIcon03`).src = `https://openweathermap.org/img/w/${result}.png`;
+                        // cloudinessDom01.innerHTML = result;
+                    };
+                };
+                // Day 4
+                for(let i in cloudinessIcon04) {
+                    let frequency = [];
+                    let max = 0;
+                    frequency[cloudinessIcon04[i]] = (frequency[cloudinessIcon04[i]] || 0)+1; // increment frequency.
+                    if(frequency[cloudinessIcon04[i]] > max) {
+                        // update max
+                        max = frequency[cloudinessIcon04[i]];
+                        // update result
+                        let result = cloudinessIcon04[i];
+                        // Show result in element
+                        document.querySelector(`#cloudinessIcon04`).src = `https://openweathermap.org/img/w/${result}.png`;
+                        // cloudinessDom01.innerHTML = result;
+                    };
+                };
+                // Day 5
+                for(let i in cloudinessIcon05) {
+                    let frequency = [];
+                    let max = 0;
+                    frequency[cloudinessIcon05[i]] = (frequency[cloudinessIcon05[i]] || 0)+1; // increment frequency.
+                    if(frequency[cloudinessIcon05[i]] > max) {
+                        // update max
+                        max = frequency[cloudinessIcon05[i]];
+                        // update result
+                        let result = cloudinessIcon05[i];
+                        // Show result in element
+                        document.querySelector(`#cloudinessIcon05`).src = `https://openweathermap.org/img/w/${result}.png`;
+                        // cloudinessDom01.innerHTML = result;
+                    };
+                };
 
                 // Display high temp for each day
                 //Day 1
@@ -503,9 +547,9 @@ searchForm.addEventListener('submit', e => {
                         // update max
                         max = frequency[cloudiness01[i]];
                         // update result
-                        result = cloudiness01[i];
+                        let result = cloudiness01[i];
                         // Show result in element
-                        cloudinessDom01.textContent = result;
+                        cloudinessDom01.innerHTML = result;
                     };
                 };
                 // Day 2
@@ -517,7 +561,7 @@ searchForm.addEventListener('submit', e => {
                         // update max
                         max = frequency[cloudiness02[i]];
                         // update result
-                        result = cloudiness02[i];
+                        let result = cloudiness02[i];
                         // Show result in element
                         cloudinessDom02.textContent = result;
                     };
@@ -531,7 +575,7 @@ searchForm.addEventListener('submit', e => {
                         // update max
                         max = frequency[cloudiness03[i]];
                         // update result
-                        result = cloudiness03[i];
+                        let result = cloudiness03[i];
                         // Show result in element
                         cloudinessDom03.textContent = result;
                     };
@@ -545,7 +589,7 @@ searchForm.addEventListener('submit', e => {
                         // update max
                         max = frequency[cloudiness04[i]];
                         // update result
-                        result = cloudiness04[i];
+                        let result = cloudiness04[i];
                         // Show result in element
                         cloudinessDom04.textContent = result;
                     };
@@ -559,7 +603,7 @@ searchForm.addEventListener('submit', e => {
                         // update max
                         max = frequency[cloudiness05[i]];
                         // update result
-                        result = cloudiness05[i];
+                        let result = cloudiness05[i];
                         // Show result in element
                         cloudinessDom05.textContent = result;
                     };
