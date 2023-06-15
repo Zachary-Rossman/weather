@@ -20,15 +20,17 @@ weatherIcon05.style.display = 'none';
 // Hide weatherCard and
 weatherCard.style.display = 'none';
 cityNameDom.style.display = 'none';
+errorMessage.style.display = 'none';
 
 
 searchForm.addEventListener('submit', e => {
     // If text input is empty, no event takes place
     e.preventDefault();
     // If statement to narrow search
-    if (searchText.value === null) {
+    if (searchText.value === null || searchText.value === "") {
         // Define content for error message
-        errorMessage.innerHTML = `Please enter a valid search`;
+        errorMessage.display = 'block';
+        errorMessage.innerHTML = `Please enter a valid search. City must be within United States.`;
         // End function
         return;
         // If there city has a US country code, function will continue
@@ -52,12 +54,12 @@ searchForm.addEventListener('submit', e => {
                 if (country === 'US') {
                     // Hides error section if previously shown
                     errorMessage.style.display = 'none';
-                } else {
+                } else if (searchText.value === null || country !== 'US') {
                     // Shows error message if search is outside of United States
-                    errorMessage.style.display = 'flex';
+                    errorMessage.style.display = 'block';
                     errorMessage.innerHTML = 'Please enter a valid search. City must be within United States.';
                     return;
-                };
+                }
                 // All data needed from api defined
                 let cityName = list.city.name;
 
