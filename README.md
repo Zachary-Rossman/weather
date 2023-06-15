@@ -14,7 +14,7 @@ No installation is required for this application.
 
 ## Usage
 
-** User must keep in mind prior to use that this application only works for cities within the United States. International cities will prompt an error message, and will contain a message saying to search for a city within the United States. The API used also does not allow a search for City, State format. ** 
+** User must keep in mind prior to use that this application only works for cities within the United States. International cities will prompt an error message, and will contain a message directing to search for a city within the United States. The API used also does not allow a search for City, State format. ** 
 
 Upon opening this program, the user will be prompted with a card that contains a form. Within the form, there are instructions, a text box, and a submit button. Once the form is submitted, the user will either be prompted with an error, or 5 separate cards displaying the forecast for the next 5 days for the selected city.
 
@@ -29,10 +29,14 @@ Tailwind CSS was used to style this program. This program solely utilizes the cd
 The link for Tailwind CSS site is listed below:
 https://tailwindcss.com/
 
+## Future Development
+
+Future development of this program may include displaying the current weather, saving previous searches, and including a dropdown menu to previous searches. As the developer of this program, I am also open to discussion through Github pertaining any ideas, bugs, and future collaborations. The link to this program's respository will be found at the bottom of this README file. 
+
 ## License
 
 This project contains an MIT License
 
 ## Link to GitHub repository
 
-https://github.com/Zachary-Rossman/password-generator
+https://github.com/Zachary-Rossman/weather
