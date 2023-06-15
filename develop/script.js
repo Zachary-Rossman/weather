@@ -3,18 +3,24 @@ let searchText = document.querySelector(`#searchText`);
 let submitBtn = document.querySelector(`#submitBtn`);
 let weatherCard = document.querySelector(`#weatherCards`);
 let errorMessage = document.querySelector(`#error`);
+let cityNameDom = document.querySelector(`#cityName`);
 
+// Hide icons so empty imgs do not populate
 let weatherIcon01 = document.querySelector(`#cloudinessIcon01`);
 let weatherIcon02 = document.querySelector(`#cloudinessIcon02`);
 let weatherIcon03 = document.querySelector(`#cloudinessIcon03`);
 let weatherIcon04 = document.querySelector(`#cloudinessIcon04`);
 let weatherIcon05 = document.querySelector(`#cloudinessIcon05`);
-
 weatherIcon01.style.display = 'none';
 weatherIcon02.style.display = 'none';
 weatherIcon03.style.display = 'none';
 weatherIcon04.style.display = 'none';
 weatherIcon05.style.display = 'none';
+
+// Hide weatherCard and
+weatherCard.style.display = 'none';
+cityNameDom.style.display = 'none';
+
 
 searchForm.addEventListener('submit', e => {
     // If text input is empty, no event takes place
@@ -27,6 +33,8 @@ searchForm.addEventListener('submit', e => {
         return;
         // If there city has a US country code, function will continue
     } else {
+        // Display weather cards
+        weatherCard.style.display = 'flex';
         // Fetch will grab url
         fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${searchText.value}&units=imperial&appid=19646f0f6fda25aa9456a943e1eda27b`)
         // .then promise will return raw json response
@@ -414,7 +422,7 @@ searchForm.addEventListener('submit', e => {
                 ];
 
                 // Display name of city searched
-                let cityNameDom = document.querySelector(`#cityName`);
+                cityNameDom.style.display = 'block';
                 cityNameDom.textContent = `5-day forecast for ${cityName}`;
 
                 // Display date on top of each weather card

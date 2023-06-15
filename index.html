@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html class="bg-blue-100" lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,74 +8,86 @@
     <script defer src="./develop/script.js"></script>
     <title>Weather Tracker</title>
 </head>
-<body class="justify-items-center max-w-full">
-    <header class="mt-4 space-x-36 max-w-full content-center">
-        <h1 class="content-center">5 Day Forecast</h1>
+<body class="flex flex-col flex-wrap content-center">
+    <header class="flex flex-wrap mt-5 max-w-full justify-center text-xl font-bold text-center">
+        <h1 class="justify-center">5 Day Forecast</h1>
     </header>
-    <main class="content-center">
-        <div id="error"></div>
-        <form class="content-center" id="searchForm" action="/" method="GET">
-            <label for="searchText">Enter City Here</label>
-            <input class="bg-gray-200 mt-4 content-center border-solid-black" id="searchText" type="text" name="searchText">
-            <button class="bg-gray-200 mt-4 content-center" id="submitBtn" type="submit">Search</button>
-        </form>
-
+    <main class="flex flex-col flex-wrap mt-5 max-w-full justify-center items-center text-lg font-normal text-center">
+        
         <!-- Displays name of city searched -->
-        <h3 id="cityName"></h3>
+        
+        <div class="flex flex-col flex-wrap bg-white max-w-fit shadow-2xl rounded-lg mt-5 font-bold" id="error"></div>
+        <h3 class="mt-5 font-semibold" id="cityName"></h3>
+        
+        <article class="flex flex-wrap max-w-full space-x-1 content-center mt-5" id="weatherCards">
+            
+            <div class="flex flex-col flex-wrap bg-white max-w-fit shadow-2xl rounded-lg p-5 justify-center" id="weather01">
+                <img class="max-w-fit self-center" src="" alt="Weather Icon" id="cloudinessIcon01">
+                <h5 class="max-w-fit self-center font-semibold" id="date01"></h5>
+                <p class="max-w-fit self-center" id="cloudiness01"></p>
+                <p class="max-w-fit self-center" id="tempHigh01"></p>
+                <p class="max-w-fit self-center" id="tempLow01"></p>
+                <p class="max-w-fit self-center" id="windSpeed01"></p>
+                <p class="max-w-fit self-center" id="windGust01"></p>
+                <p class="max-w-fit self-center" id="humidity01"></p>
+            </div>
 
-        <article class="content-center justify-items-stretch" id="weatherCards" style="display: flex; justify-content: space-between; max-width: fit-content;">
-            <div class="max-w-sm rounded overflow-hidden shadow-lg" id="weather01">
-                <img src="" alt="Weather Icon" id="cloudinessIcon01">
-                <h5 id="date01"></h5>
-                <p id="cloudiness01"></p>
-                <p id="tempHigh01"></p>
-                <p id="tempLow01"></p>
-                <p id="windSpeed01"></p>
-                <p id="windGust01"></p>
-                <p id="humidity01"></p>
+            <div class="flex flex-col flex-wrap bg-white max-w-fit shadow-2xl rounded-lg p-5 justify-center" id="weather02">
+                <img class="max-w-fit self-center" src="" alt="Weather Icon" id="cloudinessIcon02">
+                <h5 class="max-w-fit self-center font-semibold" id="date02"></h5>
+                <p class="max-w-fit self-center" id="cloudiness02"></p>
+                <p class="max-w-fit self-center" id="tempHigh02"></p>
+                <p class="max-w-fit self-center" id="tempLow02"></p>
+                <p class="max-w-fit self-center" id="windSpeed02"></p>
+                <p class="max-w-fit self-center" id="windGust02"></p>
+                <p class="max-w-fit self-center" id="humidity02"></p>
             </div>
-            <div class="max-w-sm rounded overflow-hidden shadow-lg" id="weather02">
-                <img src="" alt="Weather Icon" id="cloudinessIcon02">
-                <h5 id="date02"></h5>
-                <p id="cloudiness02"></p>
-                <p id="tempHigh02"></p>
-                <p id="tempLow02"></p>
-                <p id="windSpeed02"></p>
-                <p id="windGust02"></p>
-                <p id="humidity02"></p>
+
+            <div class="flex flex-col flex-wrap bg-white max-w-fit shadow-2xl rounded-lg p-5 justify-center" id="weather03">
+                <img class="max-w-fit self-center" src="" alt="Weather Icon" id="cloudinessIcon03">
+                <h5 class="max-w-fit self-center font-semibold" id="date03"></h5>
+                <p class="max-w-fit self-center" id="cloudiness03"></p>
+                <p class="max-w-fit self-center" id="tempHigh03"></p>
+                <p class="max-w-fit self-center" id="tempLow03"></p>
+                <p class="max-w-fit self-center" id="windSpeed03"></p>
+                <p class="max-w-fit self-center" id="windGust03"></p>
+                <p class="max-w-fit self-center" id="humidity03"></p>
             </div>
-            <div class="max-w-sm rounded overflow-hidden shadow-lg" id="weather03">
-                <img src="" alt="Weather Icon" id="cloudinessIcon03">
-                <h5 id="date03"></h5>
-                <p id="cloudiness03"></p>
-                <p id="tempHigh03"></p>
-                <p id="tempLow03"></p>
-                <p id="windSpeed03"></p>
-                <p id="windGust03"></p>
-                <p id="humidity03"></p>
+
+            <div class="flex flex-col flex-wrap bg-white max-w-fit shadow-2xl rounded-lg p-5 justify-center" id="weather04">
+                <img class="max-w-fit self-center" src="" alt="Weather Icon" id="cloudinessIcon04">
+                <h5 class="max-w-fit self-center font-semibold" id="date04"></h5>
+                <p class="max-w-fit self-center" id="cloudiness04"></p>
+                <p class="max-w-fit self-center" id="tempHigh04"></p>
+                <p class="max-w-fit self-center" id="tempLow04"></p>
+                <p class="max-w-fit self-center" id="windSpeed04"></p>
+                <p class="max-w-fit self-center" id="windGust04"></p>
+                <p class="max-w-fit self-center" id="humidity04"></p>
             </div>
-            <div class="max-w-sm rounded overflow-hidden shadow-lg" id="weather04">
-                <img src="" alt="Weather Icon" id="cloudinessIcon04">
-                <h5 id="date04"></h5>
-                <p id="cloudiness04"></p>
-                <p id="tempHigh04"></p>
-                <p id="tempLow04"></p>
-                <p id="windSpeed04"></p>
-                <p id="windGust04"></p>
-                <p id="humidity04"></p>
-            </div>
-            <div class="max-w-sm rounded overflow-hidden shadow-lg" id="weather05">
-                <img src="" alt="Weather Icon" id="cloudinessIcon05">
-                <h5 id="date05"></h5>
-                <p id="cloudiness05"></p>
-                <p id="tempHigh05"></p>
-                <p id="tempLow05"></p>
-                <p id="windSpeed05"></p>
-                <p id="windGust05"></p>
-                <p id="humidity05"></p>
+
+            <div class="flex flex-col flex-wrap bg-white max-w-fit shadow-2xl rounded-lg p-5 justify-center" id="weather05">
+                <img class="max-w-fit self-center" src="" alt="Weather Icon" id="cloudinessIcon05">
+                <h5 class="max-w-fit self-center font-semibold" id="date05"></h5>
+                <p class="max-w-fit self-center" id="cloudiness05"></p>
+                <p class="max-w-fit self-center" id="tempHigh05"></p>
+                <p class="max-w-fit self-center" id="tempLow05"></p>
+                <p class="max-w-fit self-center" id="windSpeed05"></p>
+                <p class="max-w-fit self-center" id="windGust05"></p>
+                <p class="max-w-fit self-center" id="humidity05"></p>
             </div>
         </article>
+
+        <div class="flex flex-col flex-wrap max-w-fit items-center mt-5">
+        <form class="flex flex-col flex-wrap bg-white max-w-fit shadow-2xl rounded-lg" id="searchForm" action="/" method="GET">
+            <label for="searchText">Enter City Here</label>
+            <input class="bg-blue-100 mt-4 content-center border-solid-black mx-5" id="searchText" type="text" name="searchText">
+            <button class="bg-green-200 mt-4 content-center rounded" id="submitBtn" type="submit">Search</button>
+        </form>
+        </div>
+
     </main>
-    <footer></footer>
+    <footer class="flex flex-col flex-wrap content-center mt-5">
+        <button class="max-w-full justify-center text-center bg-green-200 shadow-2xl rounded-lg"><a href="https://github.com/Zachary-Rossman">Click here to visit my Github</a></button>
+    </footer>
 </body>
 </html>
